@@ -138,7 +138,12 @@
   
   .products-container {
     margin-top: 30px;
-  }
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+  
   .all-products {
     display: flex;
     justify-content: center;
