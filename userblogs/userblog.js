@@ -11,7 +11,6 @@ import {
 import { getSingleProduct } from "../app.js";
 
 window.getSingleProduct = getSingleProduct;
-
 const blogContainer = document.querySelector(".products-container");
 const loader = document.querySelector(".loader");
 let currUserUid;
@@ -20,18 +19,14 @@ let blogIdToDelete = null;
 onAuthStateChanged(auth, (user) => {
   if (user) {
     currUserUid = user.uid;
-    console.log(user);
     logInUserBlog();
   } else {
     blogContainer.innerHTML = "Please log in to see your blogs.";
-    console.log("User logged out");
   }
 });
 
 async function logInUserBlog() {
-  if (!currUserUid) {
-    return;
-  }
+  if (!currUserUid) return;
 
   blogContainer.innerHTML = ""; // Clear previous content
 
@@ -45,8 +40,8 @@ async function logInUserBlog() {
       if (currUserUid === uid) {
         blogObj.push({ blogImg, title, description });
 
-        // Append each blog post to the blogContainer
-        blogContainer.innerHTML += `
+        // Create blog post HTML
+        const blogHtml = `
           <div style="height: 477px;" data-id="${doc.id}" data-category="blogs" class="product max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <img class="rounded-t-lg" src="${blogImg}" alt="productImage" />
             <div class="p-5">
@@ -58,13 +53,13 @@ async function logInUserBlog() {
               href="../updateblog/update.html?id=${doc.id}&category=blogs">
                 Edit Blog
               </a>
-              <a class="relative top-1 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" 
-              href="#" onclick="showDeleteMsg(this)">
+              <button onclick="showDeleteMsg(this)" type="button" class="relative top-0 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" data-id="${doc.id}">
                 Delete Blog
-              </a>
+              </button>
             </div>
           </div>
         `;
+        blogContainer.innerHTML += blogHtml;
       }
     });
 
@@ -79,30 +74,29 @@ async function logInUserBlog() {
   }
 }
 
-let deleteMsg = document.querySelector(".delete-confirmation");
-// Function to handle blog deletion
-function showDeleteMsg(ele) {
-  let parent = ele.parentElement.parentElement;
-  blogIdToDelete = parent.getAttribute("data-id");
-  deleteMsg.classList.remove("none");
+function showDeleteMsg(button) {
+  blogIdToDelete = button.getAttribute("data-id");
+  const deleteModal = document.getElementById("delete-modal");
+  deleteModal.classList.remove("hidden");
 }
 
 function hideDeleteMsg() {
-  deleteMsg.classList.add("none");
+  const deleteModal = document.getElementById("delete-modal");
+  deleteModal.classList.add("hidden");
 }
+
 async function deleteBlog() {
   if (blogIdToDelete) {
     try {
       await deleteDoc(doc(db, "blogs", blogIdToDelete));
-      // Refresh the blog list after deletion
-      deleteMsg.classList.add("none");
       logInUserBlog();
+      hideDeleteMsg();
     } catch (error) {
       console.log("Error deleting blog:", error);
     }
   }
 }
-document.querySelector(".confirm-delete").addEventListener("click", deleteBlog);
 
-window.showDeleteMsg = showDeleteMsg;
 window.hideDeleteMsg = hideDeleteMsg;
+window.deleteBlog = deleteBlog;
+window.showDeleteMsg = showDeleteMsg;
