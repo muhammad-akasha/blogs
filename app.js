@@ -50,7 +50,7 @@ const getProducts = async () => {
     const querySnapshot = await getDocs(collection(db, "blogs"));
     querySnapshot.forEach((doc) => {
       const { blogImg, title, uid } = doc.data();
-      console.log(blogImg, title, doc.id, uid); // showing all product by category
+    //  console.log(blogImg, title, doc.id, uid); // showing all product by category
       productContainer.innerHTML += `
               <div data-id="${doc.id}" data-category="blogs" class="product max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     
