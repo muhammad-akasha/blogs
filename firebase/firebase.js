@@ -34,13 +34,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCSV8DOc8JK_mkwGKYpMjSGNJyZujRqeUY",
-  authDomain: "ecommerce-web-bafe4.firebaseapp.com",
-  projectId: "ecommerce-web-bafe4",
-  storageBucket: "ecommerce-web-bafe4.appspot.com",
-  messagingSenderId: "949352532092",
-  appId: "1:949352532092:web:68b35a86f3f321db6321f9",
-  measurementId: "G-PNYFEE6KJ2",
+  apiKey: "AIzaSyALWQ49NAbc-e1x7_t0Ob5EQIz1s0qPjWQ",
+  authDomain: "blog-web-9c76c.firebaseapp.com",
+  projectId: "blog-web-9c76c",
+  storageBucket: "blog-web-9c76c.appspot.com",
+  messagingSenderId: "851089286580",
+  appId: "1:851089286580:web:1a6e4090a4fb56c548fee1",
+  measurementId: "G-TNZZ8XVL6M",
 };
 
 const app = initializeApp(firebaseConfig);
