@@ -57,7 +57,7 @@ createForm.addEventListener("submit", async (e) => {
     userPic,
     uid,
   });
-  alert("add create successfully");
+  alert("blog has been created successfully");
   loader.classList.add("none");
   btn.removeAttribute("disabled");
   btn.classList.remove("flex-class");
