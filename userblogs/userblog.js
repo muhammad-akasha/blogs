@@ -48,14 +48,29 @@ async function logInUserBlog() {
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 Title: ${title}
               </h5>
-              <button onclick="getSingleProduct(this)" type="button" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Read More</button>
-              <a class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" 
+             <button 
+              onclick="getSingleProduct(this)" 
+              type="button" 
+              style="background: linear-gradient(to right, #00b4d8, #0077b6); color: white;" 
+              class="hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+              Read Full Article
+            </button>
+
+            <a 
+              style="background: linear-gradient(to right, #00f5d4, #00c2a1); color: white;" 
+              class="hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-300             dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
               href="../updateblog/update.html?id=${doc.id}&category=blogs">
-                Edit Blog
-              </a>
-              <button onclick="showDeleteMsg(this)" type="button" class="relative top-0 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" data-id="${doc.id}">
-                Delete Blog
-              </button>
+              Edit Blog
+            </a>
+
+            <button 
+              onclick="showDeleteMsg(this)" 
+              type="button" 
+              style="background: linear-gradient(to right, #f72585, #bf1363); color: white;" 
+              class="relative top-0 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" 
+              data-id="${doc.id}">
+              Delete Blog
+            </button>
             </div>
           </div>
         `;
