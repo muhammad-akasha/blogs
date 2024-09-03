@@ -192,6 +192,14 @@ li {
   cursor: no-drop;
 }
 
+footer{
+  width: 100%;
+  padding: 50px;
+  background-color: #2c2c46;
+  color: #ffff;
+  text-align: center;
+}
+
 @media (max-width: 767px) {
   .profile-details {
     display: flex;
