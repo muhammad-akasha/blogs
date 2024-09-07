@@ -192,11 +192,7 @@ li {
   cursor: no-drop;
 }
 
-<<<<<<< HEAD
 footer {
-=======
-footer{
->>>>>>> c081eb1afa4d934e4b7fe789875d211dc6f5eab1
   width: 100%;
   padding: 50px;
   background-color: #2c2c46;
@@ -212,9 +208,7 @@ footer{
     padding: 18px 0px;
     justify-content: flex-start;
   }
-<<<<<<< HEAD
-  /* Initial state: hidden off-screen */
-  /* Initial state: hidden off-screen */
+
   .nav-links {
     position: fixed;
     top: 0;
@@ -236,6 +230,3 @@ footer{
     align-items: self-start;
   }
 }
-=======
-}
->>>>>>> c081eb1afa4d934e4b7fe789875d211dc6f5eab1
